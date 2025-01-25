@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-This is the Git hub repo for the ITM350 team that meets on Tuesday Evening
-I have added a line to in the londonc branch. 
-=======
 # This is the Git hub repo for the ITM350 team that meets on Tuesday Evening
 
 ## Git Hygiene
@@ -39,4 +35,4 @@ Following these guidelines will help us maintain an organized and efficient deve
 3. Follow the Git hygiene practices outlined above.
 
 4. Submit a pull request with a clear description of your changes.
->>>>>>> Stashed changes
+
