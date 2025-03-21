@@ -5,7 +5,7 @@ on:
     types:
       - closed
 env:
-  REPO_NAME: unseen-academicals/itm350-unseenacademicals-bb
+  REPO_NAME: robanybody1920/itm350-robanybody1920-bb
 
 jobs:
   if_merged:
