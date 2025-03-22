@@ -161,7 +161,7 @@ resource "aws_security_group" "ecs-cluster-sg" {
 
 resource "aws_key_pair" "ecs-node-kp" {
   key_name   = "ecs-node-key"
-  public_key = file("~/.ssh/id_rsa.pub")  # TODO: Replace with your public key path or paste the key directly
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDat/aGuGFQixJ1+hC478oKXqmTvhutICWi9AP2ViTWXcG/YZrmOhuZJmXb/PHOQFesEeREMtNBjdAqBn2vf8lYJ9L1jyY1F5U3YLi7fhvm6urzOOXhqodWm2C8Er+hn68BQYpCA9ALHXsgbpUmDEwYuJcmdxUMoEjwxXRd8SslGpaFz/Th7TgOPHtg4lJc2BVG5CLXa+AHPP9ByGZIo3WaauSk5T7duMVCf/tz1UezFNjD6x0h2zDgAQpJC/zdvdcQRl/9Lp0UGRLj2W+/WBVXYQSgBNAMTfautdMgKt7yh4ktGnVIveJ6wXM4GXQddFYTOPDQsR7UW/Ko8jvizHnl ITM350"
 }
 
 resource "aws_launch_template" "ecs_lt" {
@@ -171,7 +171,7 @@ resource "aws_launch_template" "ecs_lt" {
   key_name      = aws_key_pair.ecs-node-kp.key_name
   vpc_security_group_ids = [aws_security_group.ecs-cluster-sg.id]
   iam_instance_profile {
-    name = "LabInstanceProfile"  # TODO: Ensure this IAM role exists in your AWS account
+    name = "LabInstanceProfile"  
   }
   block_device_mappings {
     device_name = "/dev/xvda"
@@ -273,7 +273,7 @@ resource "aws_ecs_task_definition" "bb_task_definition" {
   container_definitions = jsonencode([
     {
       name      = "bb"
-      image     = var.container_image  # TODO: Ensure this matches your Docker image
+      image     = var.container_image  
       cpu       = 0
       essential = true
       portMappings = [
